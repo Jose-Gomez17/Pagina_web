@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Proporciona una breve descripción de la página para los motores de búsqueda -->
+  <meta name="description" content="Música">
+
+  <!--Estilo de letra-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&family=Playwrite+AU+QLD:wght@100..400&display=swap" rel="stylesheet">
+
+  <!-- Agrega un ícono en la pestaña del navegador-->
+  <link rel="shortcut icon" href="image1.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="Estilo.css">
+  <title>M.WORLD</title>
+
+
+  <script>
+    // Redirige a #Inicio al ingresar
+    if (!window.location.hash) {
+      window.location.href = "#Inicio";
+    }
+  </script>
+
+
+</head>
+
+
+<body>
+    <div class="pestaña-flotante">
+        <div class="contenedor-boton-imagen"> 
+            <img src="image1.png" alt="Logo" class="imagen-pestaña">
+            <button class="boton-pestaña">M.WORLD</button>
+        </div>
+         
+
+        <div class="Contenido-pestaña">
+            <a href="#Inicio">Inicio</a>
+            <a href="#Pais">País</a>
+            <a href="#Top_5">Top 5</a>
+            <a href="#Genero">Género</a>
+            <a href="#Sobre_sitio">Sobre el sitio</a>
+            <!--<a href="#Compartir">Compartir playlist</a>-->
+        </div>
+      </div>    
+    
+
+<main>
+<section id="Inicio" class="seccion">
+    <h1>Bienvenido a M.WORLD</h1>
+    <div class="contenedor-inicio">
+
+      <div class="tarjeta">
+        <img src="Music.gif" alt="GIF musical" class="gif-grande">
+        <h4>Explora música de todo el mundo. Selecciona  un país o género para comenzar.</h4>
+      </div>
+
+    <div class="contenedor-paises">
+            <button class="boton-paises">
+                <i class="fas fa-globe"></i> Ver países
+            </button>
+            <div class="panel-paises">
+                <div href="#pais-mexico">🇲🇽 México</div>
+                <div href="#pais-usa">🇺🇸 Estados Unidos</div>
+                <div href="#pais-espana">🇪🇸 España</div>
+            </div>
+            <div class="contenedor-generos">
+                <button class="boton-generos">
+                    <i class="fas fa-music"></i> Ver géneros
+                </button>
+                <div class="panel-generos">
+                    <span class="genero-item">🎵 Pop</span>
+                    <span class="genero-item">🎸 Rock</span>
+                    <span class="genero-item">🎹 Electrónica</span>
+                    <span class="genero-item">🎻 Clásica</span>
+                    <span class="genero-item">🎤 Hip Hop</span>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="Pais" class="seccion">
+    <h1>Música por País</h1>
+    
+    <!--para seleccionar pais-->
+    <div class="selector-pais">
+        <div class="pais-option selected">🇲🇽 México</div>
+        <div class="pais-option">🇺🇸 Estados Unidos</div>
+        <div class="pais-option">🇯🇵 Japón</div>
+        <div class="pais-option">🇪🇸 España</div>
+    </div>
+
+    <!-- Top 10 falso -->
+    <div class="top10-pais">
+        <h2><i class="fas fa-trophy"></i> Top 10 México</h2>
+        <ol class="lista-canciones">
+            <li><span class="num">1</span> "Lover Girl" - Laufey</li>
+            <li><span class="num">2</span> "Zombie" - The Cranberries</li>
+            <!-- Añade más elementos li hasta 10 -->
+        </ol>
+    </div>
+
+    <!-- Estos son botones falsos -->
+    <div class="botones-accion">
+        <button class="btn-falso"><i class="fas fa-play"></i> Reproducir Top</button>
+        <button class="btn-falso"><i class="fas fa-heart"></i> Favoritos</button>
+        <button class="btn-falso"><i class="fas fa-share"></i> Compartir</button>
+    </div>
+  </section>
+
+  <section id="Top_5" class="seccion">
+<h1>🔥 Top 5 Global</h1>
+    
+    <!-- tiempo de eelccion-->
+    <div class="selector-periodo">
+        <div class="periodo-option selected">Semanal</div>
+        <div class="periodo-option">Mensual</div>
+        <div class="periodo-option">Histórico</div>
+    </div>
+
+    <!-- Lista de canciones -->
+    <div class="top5-container">
+        <!-- Canción 1 -->
+        <div class="cancion-top">
+            <div class="posicion">1</div>
+            <div class="info-cancion">
+                <span class="titulo">"Lover Girl"</span>
+                <span class="artista">Laufey</span>
+            </div>
+            <div class="estadisticas">
+                <span class="reproducciones">▶️ 250M</span>
+                <span class="tendencia">📈 +5</span>
+            </div>
+        </div>
+        
+        <div class="cancion-top">
+            <div class="posicion">2</div>
+                        <div class="info-cancion">
+                <span class="titulo">"One Step Ahead"</span>
+                <span class="artista">Aretha Franklin</span>
+            </div>
+            <div class="estadisticas">
+                <span class="reproducciones">▶️ 160M</span>
+                <span class="tendencia">📈 +3</span>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="Sobre_sitio" class="seccion">
+    <h1>Sobre el sitio</h1>
+    <p>Este sitio fue desarrollado como un proyecto para poner en practica lo aprendido de HTML y CSS. En si, el sitio trata de mostrar listas simuladas de canciones más escuchadas por país, género, a nivel mundial, etc. Al final es un sitio incompleto debido a los restringidos conocimientos de otros elementos para poder terminar el proyecto, como lo es el uso de una base de datos o hasta la implementación de APIs.</p>
+  </section>
+
+  <section id="Genero" class="seccion">
+    <h1>Explora por Género</h1>
+    
+    <!-- tarjetas flotantes de genero -->
+    <div class="grid-generos">
+        <div class="tarjeta-genero" data-genero="pop">
+            <div class="icono-genero">🎵</div>
+            <h3>Pop</h3>
+            <div class="boton-genero">Ver Top</div>
+        </div>
+        <div class="tarjeta-genero" data-genero="rock">
+            <div class="icono-genero">🎸</div>
+            <h3>Rock</h3>
+            <div class="boton-genero">Ver Top</div>
+        </div>
+        <div class="tarjeta-genero" data-genero="electronica">
+            <div class="icono-genero">🎧</div>
+            <h3>Electrónica</h3>
+            <div class="boton-genero">Ver Top</div>
+        </div>
+    </div>
+  </section>
+
+  <!--<section id="Compartir" class="seccion">
+    <h1>Bienvenido a M.WORLD</h1>
+    <p>Explora nuestra música...</p>
+  </section>-->
+</main>
+</body>
+</html>
+<!-- Fin del documento HTML -->

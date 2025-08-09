@@ -1,0 +1,546 @@
+body{
+    margin: 0;
+    background-image: url('Fondo.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+/* Texto legible sobre el GIF */
+h1, p {
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+/* Estilo base de la pestaña */
+.pestaña-flotante {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Botón que siempre está visible */
+.boton-pestaña {
+    height: 60px;
+
+    background-color: #220079;
+    color: white;
+    border: none;
+    padding: 0px 20px;
+    font-size: 50px;
+    cursor: pointer;
+    width: 100%;
+
+    font-family: "Bitcount", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: 
+    "slnt" 0,
+    "CRSV" 0.5,
+    "ELSH" 0,
+    "ELXP" 0;
+}
+
+/* Contenido oculto inicialmente */
+.Contenido-pestaña {
+    display: none; /* Oculta el contenido */
+    background-color: #B9F4FE; /*También me gusta este color #1FDAFC #B9F4FE*/
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    padding: 10px;
+}
+
+.Contenido-pestaña a {
+    display: block;  /* Cada enlace en una línea */
+    padding: 4px 20px;  /* Espaciado vertical entre enlaces */
+    color: #220079;
+    text-decoration: none;
+    width: 100%;  
+}
+
+.Contenido-pestaña a:hover{
+    transform: scale(1.03);
+    color: #9F94F7;
+}
+
+/* Mostrar contenido al hacer hover en la pestaña */
+.pestaña-flotante:hover .Contenido-pestaña { 
+    opacity: 1;
+    height: auto;
+    display: block; /* Se despliega */
+}
+
+/* Contenedor flexible para botón + imagen */
+.contenedor-boton-imagen {
+    display: flex;
+    align-items: center; /* Centrar verticalmente */
+    gap: 10px; /* Espacio entre botón e imagen */
+    background-color: #220079; /* Mismo color que el botón */
+    padding: 0 10px; /* Ajustar*/
+}
+
+/* Estilo para la imagen */
+.imagen-pestaña {
+    /*background-color: #220079;*/
+    width: 60px; /* Ajusta el tamaño */
+    height: 50px;
+    object-fit: contain; /* Evita deformaciones */
+}
+
+/* Secciones (sistema :target) */
+.seccion {
+    display: none;
+    padding: 80px 20px 20px;
+    min-height: 100vh;
+}
+
+.seccion:target {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.tarjeta {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gif-grande { 
+    width: 600px; /* Tamaño del gif, no mover */
+    height: auto; /* ayuda en la proporcion*/
+    margin: 15px 0;
+    border-radius: 8px; /* ayuda a redondear los bordes*/
+}
+
+/* sirve para ser responsive*/
+@media (max-width: 600px) {
+    .gif-grande {
+        width: 150px; /* ayuda en el tamalo para celulares*/
+    }
+}
+
+/* Contenedor principal (GIF + panel de países) */
+.contenedor-inicio {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Panel de países (oculto por defecto) */
+.panel-paises {
+    display: none;
+    background-color: rgba(185, 244, 254, 0.9);
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.panel-paises a {
+    display: block;
+    padding: 8px;
+    color: #220079;
+    text-decoration: none;
+}
+
+.panel-paises a:hover {
+    background-color: rgba(255, 238, 88, 0.3);
+}
+
+/* Botón para mostrar países */
+.boton-paises {
+    background-color: #220079;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Bitcount", sans-serif;
+    margin-bottom: 10px;
+}
+
+/* Mostrar panel al hacer hover en el botón */
+.contenedor-paises:hover .panel-paises {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+    .contenedor-inicio {
+        flex-direction: column;
+        align-items: center;
+    }
+    .panel-paises {
+        width: 90%;
+    }
+}
+
+.contenedor-generos {
+    position: relative; /* Para posicionar el panel */
+    display: inline-block; /* Ajusta al contenido */
+}
+
+/* generos */
+.panel-generos {
+    display: none;
+    background-color: rgba(185, 244, 254, 0.9);
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    left: 0;
+    z-index: 1000; /* Para que aparezca sobre otros elementos */
+}
+
+.genero-item {
+    display: block;
+    padding: 8px;
+    color: #220079;
+    cursor: default; /* Evita el cursor "mano" */
+}
+
+.genero-item:hover {
+    background-color: rgba(255, 238, 88, 0.3);
+    border-radius: 5px;
+}
+
+/* Botón de géneros */
+.boton-generos {
+    background-color: #9F94F7; /* morado clarito */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Bitcount", sans-serif;
+    margin: 10px 0;
+}
+
+/* mostrar panel al hacer hover */
+.contenedor-generos:hover .panel-generos {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* lo hace esponsive */
+@media (max-width: 768px) {
+    .panel-generos {
+        width: 150px;
+        left: auto;
+        right: 0;
+    }
+}
+
+h4{
+    color: #000;
+}
+
+h2{
+    color: white;
+}
+
+/* Selector de país */
+.selector-pais {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pais-option {
+    color: white;
+    padding: 12px 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    cursor: pointer;
+    border: 2px solid #9F94F7;
+    transition: all 0.3s;
+}
+
+.pais-option:hover {
+    background-color: rgba(159, 148, 247, 0.3);
+}
+
+.pais-option.selected {
+    background-color: rgb(159, 148, 247);
+    color: white;
+    font-weight: bold;
+}
+
+/* Lista de canciones falsa*/
+.lista-canciones {
+    color: white;
+    background-color: rgba(160, 148, 247, 0.63);
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    list-style-type: none;
+}
+
+.lista-canciones li {
+    padding: 10px;
+    margin: 5px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.num {
+    color: #FFEE58;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Botones falsos */
+.botones-accion {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-falso {
+    padding: 12px 25px;
+    background: linear-gradient(to right, #9F94F7, #6201ff);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: not-allowed; /* Indica que no funciona */
+    font-family: "Bitcount", sans-serif;
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+.btn-falso:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(98, 1, 255, 0.3);
+}
+
+/* Contenedor de generos */
+.grid-generos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+/* trjetas flotantes */
+.tarjeta-genero {
+    background: rgba(185, 244, 254, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.tarjeta-genero:hover {
+    transform: translateY(-5px);
+    background: rgba(185, 244, 254, 0.5);
+    border-color: #9F94F7;
+}
+
+.icono-genero {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.boton-genero {
+    background: #6201ff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top: 15px;
+    display: inline-block;
+    opacity: 0.8;
+}
+
+.tarjeta-genero.active {
+    background: rgba(159, 148, 247, 0.5);
+    border-color: #FFEE58;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contenedor de generos */
+.grid-generos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 30px auto;
+}
+
+/* trjetas flotantes */
+.tarjeta-genero {
+    background: rgba(185, 244, 254, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.tarjeta-genero:hover {
+    transform: translateY(-5px);
+    background: rgba(185, 244, 254, 0.5);
+    border-color: #9F94F7;
+}
+
+.icono-genero {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.boton-genero {
+    background: #6201ff;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-top: 15px;
+    display: inline-block;
+    opacity: 0.8;
+}
+
+.tarjeta-genero.active {
+    background: rgba(159, 148, 247, 0.5);
+    border-color: #FFEE58;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* para seleccionar el tiempo*/
+.selector-periodo {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.periodo-option {
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.periodo-option:hover {
+    background: rgba(159, 148, 247, 0.3);
+}
+
+.periodo-option.selected {
+    background: #9F94F7;
+    font-weight: bold;
+}
+
+/* estilo de cancion */
+.cancion-top {
+    display: flex;
+    align-items: center;
+    background: rgba(185, 244, 254, 0.2);
+    border-radius: 10px;
+    padding: 12px 20px;
+    margin: 10px auto;
+    max-width: 600px;
+    transition: transform 0.3s;
+}
+
+.cancion-top:hover {
+    transform: scale(1.02);
+    background: rgba(185, 244, 254, 0.3);
+}
+
+.posicion {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFEE58;
+    width: 40px;
+}
+
+.info-cancion {
+    flex-grow: 1;
+}
+
+.titulo {
+    display: block;
+    font-weight: bold;
+    color: white;
+}
+
+.artista {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.reproducciones {
+    display: block;
+    color: #9F94F7;
+}
+
+.tendencia {
+    color: #4ECDC4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cancion-top {
+        flex-wrap: wrap;
+    }
+}
+
+#Sobre_sitio p {
+    background-color: #6201ffc0;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: clamp(1rem, 3vw, 2rem); /* Rango dinámico: 1rem-2rem */
+    width: clamp(300px, 80vw, 800px); /* Adaptable entre 300px y 800px */
+    margin: clamp(1rem, 3vh, 2rem) auto; /* Margen vertical responsive */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    line-height: 1.6;
+    box-sizing: border-box;
+    
+    /* Efecto de transición suave al redimensionar */
+    transition: 
+        width 0.3s ease,
+        padding 0.3s ease;
+}
